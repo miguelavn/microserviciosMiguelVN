@@ -1,0 +1,29 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: microservice-maintenance
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://18.116.226.21:3306/especializacion
+    username: miguel.especializacion
+    password: Miguel123
+  jpa:
+    hibernate:
+      ddl-auto: none # Usa 'update' para no perder los datos, no 'create'
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+

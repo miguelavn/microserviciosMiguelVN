@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: microservice-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: microservice-vehicle
+          uri: lb://microservice-vehicle
+          predicates:
+            - Path=/api/vehicles/**
+        - id: microservice-maintenance
+          uri: lb://microservice-maintenance
+          predicates:
+            - Path=/api/maintenance/**
